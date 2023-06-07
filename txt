@@ -1,1 +1,7 @@
 422b029e366d446c8dcc63b45de45a10
+
+doc :
+https://rapidapi.com/accujazz/api/rawg-video-games-database
+https://rapidapi.com/blog/rawg-video-games-api-with-java-python-php-ruby-javascript-examples/
+https://rapidapi.com/accujazz/api/rawg-video-games-database
+https://api.rawg.io/docs/#tag/genres

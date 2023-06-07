@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import axios from "axios";
 
@@ -19,41 +17,43 @@ function App() {
       page_size: "40",
     },
   };
-  async function videgamesLoader() {
+  async function videogamesLoader() {
     try {
       const response = await axios.request(options);
-      console.log(response.data);
       setData(response.data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
   }
+  console.log(data);
   useEffect(() => {
-    videgamesLoader();
-  });
+    videogamesLoader();
+  }, []);
 
+  data.results &&
+    console.log(
+      data.results.map((game) =>
+        game.platforms.map(
+          (plateform) => plateform.platform /*.map((store) => store.name)*/
+        )
+      )
+    );
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button>count is !!!!</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test Yep
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <section className="gameList">
+      {data.results &&
+        data.results.map((game) => (
+          <div className="gameCard" key={game.id}>
+            <img src={game.background_image} width="150" alt="" />
+            <p>{game.name}</p>
+            <div className="gameGenre">
+              {game.genres.map((genre) => (
+                <p key={genre.id}>{genre.name}</p>
+              ))}
+            </div>
+            <p className="gameScore">{game.metacritic}</p>
+          </div>
+        ))}
+    </section>
   );
 }
 
