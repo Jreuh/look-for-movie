@@ -1,10 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import axios from "axios";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState([]);
+
+  const options = {
+    method: "GET",
+    url: "https://rawg-video-games-database.p.rapidapi.com/games?key=422b029e366d446c8dcc63b45de45a10",
+    headers: {
+      "X-RapidAPI-Key": "c868e945acmshb11192fc985e8afp10918ajsn10075ee179b5",
+      "X-RapidAPI-Host": "rawg-video-games-database.p.rapidapi.com",
+      page_size: "40",
+    },
+    params: {
+      page_size: "40",
+    },
+  };
+  async function videgamesLoader() {
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      setData(response.data);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    videgamesLoader();
+  });
 
   return (
     <>
@@ -18,9 +45,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}!!!!
-        </button>
+        <button>count is !!!!</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test Yep
         </p>
