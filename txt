@@ -1,4 +1,4 @@
-422b029e366d446c8dcc63b45de45a10
+26bf7c214e2c486a864809a33c33574c
 
 doc :
 https://rapidapi.com/accujazz/api/rawg-video-games-database

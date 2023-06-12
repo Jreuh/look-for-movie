@@ -1,3 +1,9 @@
+body {
+  background-color: #1b9aaa;
+}
+#root {
+  width: 100%;
+}
 .gameList {
   display: flex;
   justify-content: center;
@@ -13,6 +19,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  color: #e9edde;
 }
 .gameCard img {
   width: 100%;
@@ -34,4 +41,28 @@ p {
   background-color: green;
   padding: 5px;
   border-radius: 45%;
+}
+main {
+  margin: 0 auto;
+  max-width: 1215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+footer,
+header {
+  background-color: #7a6263;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e9edde;
+  gap: 50px;
+}
+.linkedin,
+.linkedin:visited {
+  text-decoration: none;
+  background-image: url(./assets/LinkedIn_icon.svg);
 }
