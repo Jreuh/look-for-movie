@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Genre from "../Components/Genre";
 export default function GameList() {
   const [data, setData] = useState([]);
   const [currentPage, setCurentPage] = useState(
@@ -81,6 +82,7 @@ export default function GameList() {
       <button value="Action" onClick={handleGenre}>
         ACTION
       </button>
+      <Genre />
       <section className="gameList">
         {data.results &&
           data.results.map((game) => (
